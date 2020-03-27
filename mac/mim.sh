@@ -57,8 +57,21 @@ echo "3) Don't download anything new (default)"
 read -p "Make Choice or Press Enter To Do Nothing: " ANSWER
 
 case "$ANSWER" in 
-  [1]|[Ff]*)
+  [1]|[Ff]*) 
+    wget https://ftp.mozilla.org/pub/firefox/releases/75.0b9/mac/en-US/Firefox\ 75.0b9.dmg
+    #Mount and install here
+    open -a /Applications/Firefox.app vlc://https://mortis.moe
+    break
+    ;;
+  [2]|[Cc]*)
+    open -a /Applications/Safari.app https://www.google.com/chrome/thank-you.html?brand=CHBD&statcb=0&installdataindex=empty&defaultbrowser=0#
+    read -p "Press enter after Chrome is done installing..." STALLING
+    open -a /Applications/Google\ Chrome.app vlc://https://mortis.moe
+    break
+    ;;
+  *)
+    open -a /Applications/Safari.app vlc://https://mortis.moe
+    break
+    ;; 
     
-
-#Open up a link in web browser to set this file type association
-open -a /Applications/Firefox.app vlc://https://mortis.moe
+echo "\n\nAll set!  Please contact Mort if you have any questions"
