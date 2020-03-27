@@ -29,7 +29,7 @@ else
   #http://commandlinemac.blogspot.com/2008/12/installing-dmg-application-from-command.html
   hdiutil mount vlc-3.0.8.dmg 
   echo "    Installing...  This might take a second!"
-  cp -r /Volumes/VLC\ media\ player/VLC.app /Applicaions/.
+  cp -r /Volumes/VLC\ media\ player/VLC.app /Applications/VLC.app
   echo "    Cleaning up..."
   hdiutil unmount /Volumes/VLC\ media\ player
   echo "    VLC complete!\n"
