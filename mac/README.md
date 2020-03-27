@@ -1,10 +1,11 @@
-If you have [Homebrew](https://brew.sh/), you can install by running:
+For Automated Install (which includes VLC, wget, and a web browser) download mim.sh
 
 ```
-brew cask install stefansundin/tap/vlc-protocol
+chmod +x mim.sh
+./mim.sh
 ```
 
-To build and install, run:
+To build and install manually, run:
 
 ```
 ./build.sh
