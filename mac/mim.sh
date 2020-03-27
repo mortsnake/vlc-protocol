@@ -62,8 +62,8 @@ rm -rf ~/Downloads/wget-1.19.5.tar.gz
 echo "    Clean-up complete!"
 
 #Instruct user to complete some instructions
-echo "In a second, your web browser will open up.  When a pop-up asking you to do something with the file type shows up, select 'always use'
-echo "In Firefox, you might have to 'choose another application' and select 'VLC-protocol'.  Make sure to select 'remember my choice'
+echo "In a second, your web browser will open up.  When a pop-up asking you to do something with the file type shows up, select 'always use'"
+echo "In Firefox, you might have to 'choose another application' and select 'VLC-protocol'.  Make sure to select 'remember my choice'"
 echo "Safari is dumb, like usual and might not work.  I would recommend using Chrome or Firefox in general, anyways."
 echo "\nJust press enter if you don't want to download any new browsers, or if you already have another browser"
 echo ""
