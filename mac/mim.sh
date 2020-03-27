@@ -2,6 +2,7 @@
 
 #Get some pre-req software installed first
 echo "Working on system tools:"
+cd ~/Downloads
 curl -O https://ftp.gnu.org/gnu/wget/wget-1.19.5.tar.gz
 tar -zxvf wget-1.19.5.tar.gz
 cd wget-1.19.5/
@@ -43,6 +44,12 @@ echo "    Building..."
 echo "    Installing..."
 cp -r /tmp/vlc-protocol/mac/VLC-protocol-app /Applications/MortIsMoe\ Streaming.app
 echo "    VLC-Protocol Add-On Complete\n"
+
+#Will remove all downloaded files and stuff to free up space
+echo "Working on cleaning up loose files..."
+rm -rf /tmp/vlc-protocol
+rm -rf ~/Downloads/wget-1.19.5.tar.gz
+echo "    Clean-up complete!"
 
 #Instruct user to complete some instructions
 echo "In a second, your web browser will open up.  When a pop-up asking you to do something with the file type shows up, select 'always use'
