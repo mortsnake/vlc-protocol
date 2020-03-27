@@ -14,7 +14,7 @@ then
   ./configure --with-ssl=openssl
   make
   make install
-  echo "    System tools completed!\n"
+  echo "    System tools completed!"
 fi
 
 #Check if VLC is installed.  Then, get the latest VLC install .dmg file if needed
@@ -37,11 +37,12 @@ else
   cp -r /Volumes/VLC\ media\ player/VLC.app /Applications/VLC.app
   echo "    Cleaning up..."
   hdiutil unmount /Volumes/VLC\ media\ player
-  echo "    VLC complete!\n"
+  echo "    VLC complete!"
 fi
 
 #First get the repo, git should be installed on OSX by default
-echo "\nWorking on VLC-Protocol association:"
+echo ""
+echo "Working on VLC-Protocol association:"
 if [ ! -d /tmp/vlc-protocol ]
 then
   git clone https://github.com/mortsnake/vlc-protocol.git /tmp/vlc-protocol 1> /dev/null
@@ -55,10 +56,11 @@ echo "    Building..."
 #Copy app into Applications dir
 echo "    Installing..."
 cp -r /tmp/vlc-protocol/mac/VLC-protocol-app /Applications/MortIsMoe\ Streaming.app
-echo "    VLC-Protocol Add-On Complete\n"
+echo "    VLC-Protocol Add-On Complete"
 
 #Will remove all downloaded files and stuff to free up space
-echo "    Working on cleaning up loose files..."
+echo ""
+echo "Working on cleaning up loose files..."
 rm -rf /tmp/vlc-protocol
 rm -rf ~/Downloads/wget-1.19.5.tar.gz
 echo "    Clean-up complete!"
@@ -66,34 +68,36 @@ echo "    Clean-up complete!"
 #Instruct user to complete some instructions
 echo ""
 echo ""
-echo "In a second, your web browser will open up.  When a pop-up asking you to do something with the file type shows up, select 'always use'"
-echo "In Firefox, you might have to 'choose another application' and select 'VLC-protocol'.  Make sure to select 'remember my choice'"
-echo "Safari is dumb, like usual and might not work.  I would recommend using Chrome or Firefox in general, anyways."
+echo "-In a second, your web browser will open up."
+echo "-A pop-up will appear asking you if you want to open the app, choose yes"
+echo "-In Firefox, you might have to 'choose another application' and select 'MortIsMoe_Streaming'."  
+echo "-Make sure to select 'remember my choice'"
+echo "-Safari is dumb, like usual and might not work."
+echo "-I would recommend using Chrome or Firefox in general, anyways."
 echo ""
-echo "Just press enter if you don't want to download any new browsers, or if you already have another browser"
+echo "Just press enter if you don't want to download any new browsers," 
+echo "or if you already have another browser"
 echo ""
-echo "1) Download Firefox"
-echo "2) Download Chrome"
-echo "3) Don't download anything new (default)"
+echo "    1) Download Firefox"
+echo "    2) Download Chrome"
+echo "    3) Don't download anything new (default)"
+echo ""
 
-read -p "Make Choice or Press Enter To Do Nothing: " ANSWER
+read -p "    Make Choice or Press Enter To Do Nothing: " ANSWER
 
 case "$ANSWER" in 
   [1]|[Ff]*) 
     wget https://ftp.mozilla.org/pub/firefox/releases/75.0b9/mac/en-US/Firefox\ 75.0b9.dmg
     #Mount and install here
     open -a /Applications/Firefox.app vlc://https://mortis.moe
-    break
     ;;
   [2]|[Cc]*)
     open -a /Applications/Safari.app https://www.google.com/chrome/thank-you.html?brand=CHBD&statcb=0&installdataindex=empty&defaultbrowser=0#
     read -p "Press enter after Chrome is done installing..." STALLING
     open -a /Applications/Google\ Chrome.app vlc://https://mortis.moe
-    break
     ;;
   *)
     open vlc://https://mortis.moe
-    break
     ;; 
 esac
     
