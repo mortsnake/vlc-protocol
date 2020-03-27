@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash
 
 #Get some pre-req software installed first
 #Check if Wget installed
