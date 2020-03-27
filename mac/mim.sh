@@ -1,16 +1,20 @@
 #!/bin/bash -ex
 
 #Get some pre-req software installed first
-echo "Working on system tools:"
-cd ~/Downloads
-curl -O https://ftp.gnu.org/gnu/wget/wget-1.19.5.tar.gz
-tar -zxvf wget-1.19.5.tar.gz
-cd wget-1.19.5/
-echo "    Installing..."
-./configure --with-ssl=openssl
-make
-make install
-echo "    System tools completed!\n"
+#Check if Wget installed
+if [ ! `command -v wget` ]
+then
+  echo "Working on system tools:"
+  cd ~/Downloads
+  curl -O https://ftp.gnu.org/gnu/wget/wget-1.19.5.tar.gz
+  tar -zxvf wget-1.19.5.tar.gz
+  cd wget-1.19.5/
+  echo "    Installing..."
+  ./configure --with-ssl=openssl
+  make
+  make install
+  echo "    System tools completed!\n"
+fi
 
 #Check if VLC is installed.  Then, get the latest VLC install .dmg file if needed
 echo "Working on VLC app:"
