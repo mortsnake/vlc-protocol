@@ -24,7 +24,10 @@ then
 else
   echo "    Downloading..."
   cd ~/Downloads
-  wget https://get.videolan.org/vlc/3.0.8/macosx/vlc-3.0.8.dmg 
+  if [ ! -f vlc-3.0.8.dmg ]
+  then
+    wget https://get.videolan.org/vlc/3.0.8/macosx/vlc-3.0.8.dmg 
+  fi
   #Need to mount and install the dmg file:
   #http://commandlinemac.blogspot.com/2008/12/installing-dmg-application-from-command.html
   hdiutil mount vlc-3.0.8.dmg 
@@ -37,7 +40,10 @@ fi
 
 #First get the repo, git should be installed on OSX by default
 echo "Working on VLC-Protocol association:"
-git clone https://github.com/mortsnake/vlc-protocol.git /tmp/vlc-protocol
+if [ ! -d /tmp/vlc-protocol ]
+then
+  git clone https://github.com/mortsnake/vlc-protocol.git /tmp/vlc-protocol
+fi
 
 #CD into dir, run the build script.  This should compile successfully
 cd /tmp/vlc-protocol/mac
@@ -81,7 +87,7 @@ case "$ANSWER" in
     break
     ;;
   *)
-    open -a /Applications/Safari.app vlc://https://mortis.moe
+    open vlc://https://mortis.moe
     break
     ;; 
     
