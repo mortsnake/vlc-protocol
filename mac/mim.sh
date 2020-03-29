@@ -11,7 +11,7 @@ else
   cd ~/Downloads
   if [ ! -f vlc-3.0.8.dmg ]
   then
-    curl -O https://get.videolan.org/vlc/3.0.8/macosx/vlc-3.0.8.dmg 
+    curl -O https://videolan.mirrors.hivelocity.net/vlc/3.0.8/macosx/vlc-3.0.8.dmg
   fi
   #Need to mount and install the dmg file:
   #http://commandlinemac.blogspot.com/2008/12/installing-dmg-application-from-command.html
