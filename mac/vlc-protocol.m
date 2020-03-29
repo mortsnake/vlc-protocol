@@ -55,7 +55,11 @@
 	
 	  NSWindow *window = [[NSWindow alloc] init];
 	  NSRect frame = NSMakeRect(0, 0, 200, 200);
-	  NSUInteger masks = NSWindowStyleMaskTitled;
+	  @try {
+	  	NSUInteger masks = NSTitledWindowMask;
+	  } @catch (NSException *exception) {
+		NSUInteger masks = NSWindowStyleMaskTitled;  
+	  }
 	   
 	  [window setStyleMask:masks];
 	  [window setBackgroundColor:[NSColor blueColor]];
