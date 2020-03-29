@@ -1,22 +1,5 @@
 #!/bin/bash
 
-#Get some pre-req software installed first
-#Check if Wget installed
-if [ ! `command -v wget` ]
-then
-  echo ""
-  echo "Working on system tools:"
-  cd ~/Downloads
-  curl -O https://ftp.gnu.org/gnu/wget/wget-1.19.5.tar.gz
-  tar -zxvf wget-1.19.5.tar.gz
-  cd wget-1.19.5/
-  echo "    Installing..."
-  ./configure --with-ssl=openssl
-  make
-  make install
-  echo "    System tools completed!"
-fi
-
 #Check if VLC is installed.  Then, get the latest VLC install .dmg file if needed
 echo ""
 echo "Working on VLC app:"
@@ -28,7 +11,7 @@ else
   cd ~/Downloads
   if [ ! -f vlc-3.0.8.dmg ]
   then
-    wget https://get.videolan.org/vlc/3.0.8/macosx/vlc-3.0.8.dmg 
+    curl -O https://get.videolan.org/vlc/3.0.8/macosx/vlc-3.0.8.dmg 
   fi
   #Need to mount and install the dmg file:
   #http://commandlinemac.blogspot.com/2008/12/installing-dmg-application-from-command.html
@@ -87,12 +70,13 @@ read -p "    Make Choice or Press Enter To Do Nothing: " ANSWER
 
 case "$ANSWER" in 
   [1]|[Ff]*) 
-    wget https://ftp.mozilla.org/pub/firefox/releases/75.0b9/mac/en-US/Firefox\ 75.0b9.dmg
+    open https://ftp.mozilla.org/pub/firefox/releases/75.0b9/mac/en-US/Firefox%2075.0b9.dmg
     #Mount and install here
+    read -p "Press enter after Firefox is done installing..." STALLING
     open -a /Applications/Firefox.app vlc://https://mortis.moe
     ;;
   [2]|[Cc]*)
-    open -a /Applications/Safari.app https://www.google.com/chrome/thank-you.html?brand=CHBD&statcb=0&installdataindex=empty&defaultbrowser=0#
+    open https://www.google.com/chrome/thank-you.html?brand=CHBD&statcb=0&installdataindex=empty&defaultbrowser=0#
     read -p "Press enter after Chrome is done installing..." STALLING
     open -a /Applications/Google\ Chrome.app vlc://https://mortis.moe
     ;;
