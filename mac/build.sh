@@ -1,4 +1,4 @@
-#!/bin/bash -ex
+#!/bin/bash
 
 #Compile App
 mkdir -p VLC-protocol-app/Contents/MacOS
