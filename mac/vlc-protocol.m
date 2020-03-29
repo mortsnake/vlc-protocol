@@ -1,7 +1,7 @@
 	// https://www.cocoawithlove.com/2010/09/minimalist-cocoa-programming.html
 	#import <Cocoa/Cocoa.h>
 	//This throws error on new OSX versions, have to check for what versions need this string
-	#define NSWindowStyleMaskTitled NSTitledWindowMask
+	//#define NSWindowStyleMaskTitled NSTitledWindowMask
 	
 	@interface AppDelegate : NSObject <NSApplicationDelegate>
 	@end
