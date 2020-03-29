@@ -11,10 +11,10 @@ else
   cd ~/Downloads
   if [ ! -f vlc-3.0.8.dmg ]
   then
-    curl -O https://videolan.mirrors.hivelocity.net/vlc/3.0.8/macosx/vlc-3.0.8.dmg
+    curl -O https://videolan.mirrors.hivelocity.net/vlc/3.0.8/macosx/vlc-3.0.8.dmg > /dev/null 2>&1
   fi
   #Need to mount and install the dmg file:
-  hdiutil mount vlc-3.0.8.dmg
+  hdiutil mount vlc-3.0.8.dmg > /dev/null 2>&1
   echo "    Installing...  This might take a second!"
   cp -r /Volumes/VLC\ media\ player/VLC.app /Applications/VLC.app
   echo "    Cleaning up..."
@@ -27,7 +27,7 @@ echo ""
 echo "Working on VLC-Protocol association:"
 if [ ! -d /tmp/vlc-protocol ]
 then
-  git clone https://github.com/mortsnake/vlc-protocol.git /tmp/vlc-protocol
+  git clone https://github.com/mortsnake/vlc-protocol.git /tmp/vlc-protocol > /dev/null 2>&1
 fi
 
 #CD into dir, run the build script.  This should compile successfully
@@ -50,9 +50,9 @@ echo "    Clean-up complete!"
 echo ""
 echo ""
 echo "In a second, your web browser will open up."
-sleep 1
+sleep 2
 echo "  -Safari has issues and might not work correctly."
-sleep 1
+sleep 2
 echo "  -I would recommend using Chrome or Firefox in general, anyways."
 sleep 2
 echo ""
