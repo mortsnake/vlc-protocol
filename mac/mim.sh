@@ -14,8 +14,7 @@ else
     curl -O https://videolan.mirrors.hivelocity.net/vlc/3.0.8/macosx/vlc-3.0.8.dmg
   fi
   #Need to mount and install the dmg file:
-  #http://commandlinemac.blogspot.com/2008/12/installing-dmg-application-from-command.html
-  hdiutil mount vlc-3.0.8.dmg 1> /dev/null
+  hdiutil mount vlc-3.0.8.dmg
   echo "    Installing...  This might take a second!"
   cp -r /Volumes/VLC\ media\ player/VLC.app /Applications/VLC.app
   echo "    Cleaning up..."
@@ -28,7 +27,7 @@ echo ""
 echo "Working on VLC-Protocol association:"
 if [ ! -d /tmp/vlc-protocol ]
 then
-  git clone https://github.com/mortsnake/vlc-protocol.git /tmp/vlc-protocol 1> /dev/null
+  git clone https://github.com/mortsnake/vlc-protocol.git /tmp/vlc-protocol
 fi
 
 #CD into dir, run the build script.  This should compile successfully
@@ -45,21 +44,20 @@ echo "    VLC-Protocol Add-On Complete"
 echo ""
 echo "Working on cleaning up loose files..."
 rm -rf /tmp/vlc-protocol
-rm -rf ~/Downloads/wget-1.19.5.tar.gz
 echo "    Clean-up complete!"
 
 #Instruct user to complete some instructions
 echo ""
 echo ""
-echo "-In a second, your web browser will open up."
-echo "-A pop-up will appear asking you if you want to open the app, choose yes"
-echo "-In Firefox, you might have to 'choose another application' and select 'MortIsMoe_Streaming'."  
-echo "-Make sure to select 'remember my choice'"
-echo "-Safari is dumb, like usual and might not work."
-echo "-I would recommend using Chrome or Firefox in general, anyways."
+echo "In a second, your web browser will open up."
+sleep 1
+echo "  -Safari has issues and might not work correctly."
+sleep 1
+echo "  -I would recommend using Chrome or Firefox in general, anyways."
+sleep 2
 echo ""
-echo "Just press enter if you don't want to download any new browsers," 
-echo "or if you already have another browser"
+echo "  -Just press enter if you don't want to download any new browsers," 
+echo "   or if you already have another browser"
 echo ""
 echo "    1) Download Firefox"
 echo "    2) Download Chrome"
@@ -73,15 +71,15 @@ case "$ANSWER" in
     open https://ftp.mozilla.org/pub/firefox/releases/75.0b9/mac/en-US/Firefox%2075.0b9.dmg
     #Mount and install here
     read -p "Press enter after Firefox is done installing..." STALLING
-    open -a /Applications/Firefox.app vlc://https://mortis.moe
+    open -a /Applications/Firefox.app https://mortis.moe/downloadauth.php
     ;;
   [2]|[Cc]*)
     open https://www.google.com/chrome/thank-you.html?brand=CHBD&statcb=0&installdataindex=empty&defaultbrowser=0#
     read -p "Press enter after Chrome is done installing..." STALLING
-    open -a /Applications/Google\ Chrome.app vlc://https://mortis.moe
+    open -a /Applications/Google\ Chrome.app https://mortis.moe/downloadauth.php
     ;;
   *)
-    open vlc://https://mortis.moe
+    open https://mortis.moe/downloadauth.php
     ;; 
 esac
     
